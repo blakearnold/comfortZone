@@ -1,3 +1,5 @@
+#legacy code, no longer used
+
 import User
 import Checkin
 

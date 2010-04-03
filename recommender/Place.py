@@ -1,3 +1,8 @@
+#place
+#has a dictionary to hold the number of times each person has visited it
+#has a place to identify itself
+#has a set of users to know who has checked in.
+
 class Place:
     
     def __init__(self, place, users):

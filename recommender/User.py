@@ -1,3 +1,10 @@
+#user
+#has a dictionary to hold the number of times the user has visited each place
+#has a user to identify itself
+#has a set of places to know the user has gone.
+
+
+#NEEDS TO BE CHANGED SO DICTIONARIES ARE USEFUL
 class User:
     
     def __init__(self, user, place):
