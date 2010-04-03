@@ -1,0 +1,63 @@
+Foursquare.py - v0.1.1
+
+A simple python wrapper for the foursquare API.
+
+http://www.foursquare.com
+http://api.foursquare.com
+
+More details:
+http://ismaild.com/foursquare-api-python/ 
+
+Created by Ismail Dhorat
+ismail@zyelabs.net
+http://zyelabs.net
+
+Notes:
+- arguments are required
+- keyword arguments are optional
+- the keyword is mapped to the key required by the foursquare API (except for set_pings)
+- if authentication is required, username and password are the first two args
+- use help(foursquare) for details on required arguments
+
+Usage:
+- import foursquare
+- f = foursquare.Api()
+- f.method(args, kwargs)
+
+Help:
+- View the docstrings
+- import the lib, and then run help(foursquare)
+
+API Methods defined:
+foursquare.Api.test()
+
+- Geo Methods
+foursquare.Api.get_cities()
+foursquare.Api.check_city()
+foursquare.Api.switch_city()
+
+- Check in Methods
+foursquare.Api.get_checkins()
+foursquare.Api.checkin()
+foursquare.Api.get_history()
+
+- User Methods
+foursquare.Api.get_user_detail()
+foursquare.Api.get_friends()
+
+- Venue Methods
+foursquare.Api.get_venues()
+foursquare.Api.get_venue_detail()
+foursquare.Api.add_venue()
+
+-Tip Methods
+foursquare.Api.get_tips()
+foursquare.Api.add_tip()
+
+- Settings Methods
+foursquare.Api.set_pings()
+
+
+
+
+
