@@ -6,7 +6,7 @@ class RecommendationEngine:
     #allPlaces are in home zone
     #PLACES is number of places to find
     #USERS is number of other users to find
-    def runRec(self, PLACES, allPlaces, USERS):
+    def runRec(self, PLACES, USERS, allPlaces):
         self.PLACES = PLACES
         self.USERS = USERS        
         topPlaces = self.setPlaces(allPlaces)
@@ -25,7 +25,8 @@ class RecommendationEngine:
     def setTopUsers(self, topPlaceUsers, places):
         userKeys = {}
         for i in topPlaceUsers :
-            userKeys[i] =  len(i.getPlaces() & places)  #makes the key
+            userKeys[i] =  1.0*len(i.getPlaces() & places)/len(i.getPlaces()|places)
+            #makes the key based on the jaccard index
         topUsers = set([])
         for i in topPlaceUsers :
             if len(topUsers) < USERS :
