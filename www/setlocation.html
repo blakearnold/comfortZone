@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+var radius;
+var marker;
+var map;
+var homezone;	
+  
+
+
+function initialize() {
+		var center = new google.maps.LatLng(40.80712, -73.9650);
+		var myOptions = {
+      zoom: 16,
+      center: center,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+		
+	marker = new google.maps.Marker({
+				position:center, 
+				name:"Home Zone",
+				draggable:true
+		});
+    homezone = new google.maps.Circle({
+			center:center,
+			fillColor:"#00AAFF",
+			fillOpacity:0.5,
+			map:map,
+			radius:200,
+			strokeColor:"#FFAA00",
+			strokeOpacity:0.7,
+			strokeWeight:2,
+			zIndex:10});
+  
+		homezone.setMap(map);
+	google.maps.event.addListener(marker, "dragend", function() {
+			center = marker.getPosition();
+  		homezone.setCenter(center);
+  	});
+		marker.setMap(map);
+  }
+
+
+function getRadius(){
+	radius = document.getElementById("radius").value;
+	radius = parseInt(radius);
+	homezone.setRadius(radius);
+}
+</script>
+</head>
+<body onload="initialize()">
+
+<label for="radius"><strong>Radius:</strong></label><input size="5" maxlength="5" type="text" id="radius" name="radius" onChange="getRadius();" /><br />
+  <div id="map_canvas" style="width:100%; height:90%"></div>
+
+</body>
+</html>
